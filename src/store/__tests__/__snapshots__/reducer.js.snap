@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`store/reducer #order reduces a destination/SET action 1`] = `Object {}`;
+
+exports[`store/reducer #order reduces a order/SUBMIT action 1`] = `
+Object {
+  "departing": true,
+}
+`;
+
+exports[`store/reducer #order reduces a payment/SET action 1`] = `Object {}`;
+
+exports[`store/reducer #order reduces an unknown action 1`] = `Object {}`;
+
+exports[`store/reducer #payment reduces a payment/FIND/FAILURE action 1`] = `
+Object {
+  "found": Array [],
+  "list": Array [],
+  "loading": false,
+}
+`;
+
+exports[`store/reducer #payment reduces a payment/FIND/REQUEST action 1`] = `
+Object {
+  "list": Array [],
+  "loading": true,
+}
+`;
+
+exports[`store/reducer #payment reduces a payment/FIND/SUCCESS action 1`] = `
+Object {
+  "found": Array [
+    0,
+    1,
+  ],
+  "list": Array [
+    Object {
+      "id": 0,
+      "name": "test 1",
+    },
+    Object {
+      "id": 1,
+      "name": "test 2",
+    },
+  ],
+  "loading": false,
+}
+`;
+
+exports[`store/reducer #payment reduces an unknown action 1`] = `
+Object {
+  "list": Array [],
+}
+`;
