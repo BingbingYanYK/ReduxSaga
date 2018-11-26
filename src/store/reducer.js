@@ -35,7 +35,11 @@ export function payment(state = initialPayment, action) {
 export function order(state = {}, action) {
   switch (action.type) {
     case a.SET_DESTINATION:
-      return state; // TODO
+      return {
+        ...state, 
+        destination: action.destinationId,
+        payment: null
+      }
     case a.SET_PAYMENT:
       return {
         ...state,
@@ -51,7 +55,43 @@ export function order(state = {}, action) {
   }
 }
 
+export function destinations(state = {}, action ){
+  switch (action.type) {
+    case a.FIND_DESTINATION.REQUEST:
+      return { 
+        loading: true
+      };
+    case a.FIND_DESTINATION.SUCCESS:
+      return {
+        list: action.list,
+        found: action.list.map(e=>e.id),
+        loading: false
+      };
+    case a.FIND_DESTINATION.FAILURE:
+      return {
+        list: [],
+        found: [],        
+        loading: false
+      };
+    default: 
+      return state; 
+  }
+}
+
+export function destinationId(state = "", action ){
+  switch (action.type){
+    /* case a.FIND_DESTINATION.REQUEST:
+      return ""; */
+    case a.SET_DESTINATION : 
+      return action.destinationId;
+    default :
+      return state;
+  }
+}
+
 export default combineReducers({
   payment,
-  order
+  order, 
+  destinations, 
+  destinationId
 });
