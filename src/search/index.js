@@ -2,7 +2,7 @@ import React from 'react';
 import {Input} from './styled-components';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { setDestination , searchDestination} from '../store/actions';
+import { searchDestination } from '../store/actions';
 
 class SearchBar extends React.Component{
     onInputChange = (e)=>{
@@ -13,6 +13,7 @@ class SearchBar extends React.Component{
         return(
             <section>
                 <Input placeholder="Search for a planet" onChange={this.onInputChange} />
+
             </section>
         )
     }
